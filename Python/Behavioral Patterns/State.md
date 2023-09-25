@@ -43,8 +43,7 @@ Used to describe a finite state machine in your code, when an object can change 
     > In short: both implemitations have diffrent use cases
 
 ## Code snippet
-'''python
-
+```python
 from __future__ import annotations
 from abc import ABC, abstractmethod
 
@@ -64,7 +63,6 @@ class Context:
 
     def request2(self):
         self._state.handle2()
-
 
 class State(ABC):
     @property
@@ -106,5 +104,4 @@ if __name__ == "__main__":
     context.request1()
     context.request2()
 
-
-'''
+```

@@ -9,7 +9,7 @@ Used to describe a finite state machine in your code, when an object can change 
 
 ## Description
 ### UML 
-![State UML](./images/State_UML.jpeg)
+![State UML](./images/state_pattern.drawio.png)
 1. Context
     - defines interface of intrests to clients.
     - maintains an instance of concreteState(State1, State2) subclass that defines the current state.

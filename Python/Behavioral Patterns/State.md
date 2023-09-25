@@ -41,3 +41,70 @@ Used to describe a finite state machine in your code, when an object can change 
     - create prior to use and never destroy
         - used when state changes are rapid
     > In short: both implemitations have diffrent use cases
+
+## Code snippet
+'''python
+
+from __future__ import annotations
+from abc import ABC, abstractmethod
+
+
+class Context:
+    _state = None
+
+    def __init__(self, state: State) -> None:
+        self.transition_to(state)
+
+    def transition_to(self, state: State):
+        self._state = state
+        self._state.context = self
+
+    def request1(self):
+        self._state.handle1()
+
+    def request2(self):
+        self._state.handle2()
+
+
+class State(ABC):
+    @property
+    def context(self) -> Context:
+        return self._context
+
+    @context.setter
+    def context(self, context: Context) -> None:
+        self._context = context
+
+    @abstractmethod
+    def handle1(self) -> None:
+        pass
+
+    @abstractmethod
+    def handle2(self) -> None:
+        pass
+
+
+class ConcreteStateA(State):
+    def handle1(self) -> None:
+        self.context.transition_to(ConcreteStateB())
+
+    def handle2(self) -> None:
+        pass
+
+class ConcreteStateB(State):
+    def handle1(self) -> None:
+        pass
+
+    def handle2(self) -> None:
+        self.context.transition_to(ConcreteStateA())
+
+
+if __name__ == "__main__":
+    # The client code.
+
+    context = Context(ConcreteStateA())
+    context.request1()
+    context.request2()
+
+
+'''

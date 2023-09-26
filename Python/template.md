@@ -4,7 +4,7 @@
 A short description of the pattern
 
 ## When to use
-
+- Add usecases
 
 ## Description
 ### UML 

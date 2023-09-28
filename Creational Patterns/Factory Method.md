@@ -11,7 +11,7 @@ Factory method delegates object creation to subclasses. Factory Method defines i
 ### UML 
 ![Factory Method](./images/Factory_method.drawio.png)
 - Product
-    - Defines the interface of objects the factory methd creates.
+    - Defines the interface of objects the factory method creates.
 - ConcreteProduct
     - implements the Products interface.
 - Creator

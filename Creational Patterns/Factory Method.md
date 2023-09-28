@@ -31,8 +31,9 @@ Factory method delegates object creation to subclasses. Factory Method defines i
         - enables flexibilty for subclasses to overide their own creation.
     - Parameterized factory method
         - factory method can take parameters to create diffrent kind of objects with shared interface.
+
 ## Code snippet
-```
+```Python
 from __future__ import annotations
 from abc import ABC, abstractmethod
 
